@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Illimité</title>
+</head>
+<body>
+
+    <h1>Générateur de Quiz de Programmation</h1>
+    
+    <form method="POST" action="/ask-question/">
+        {% csrf_token %}
+        <label for="difficulty">Difficulté :</label>
+        <select name="difficulty" id="difficulty">
+            <option value="facile">Facile</option>
+            <option value="intermédiaire">Intermédiaire</option>
+            <option value="difficile">Difficile</option>
+            <option value="expert">Expert</option>
+        </select>
+
+        <label for="language">Langage de programmation :</label>
+        <select name="language" id="language">
+            <option value="python">Python</option>
+            <option value="javascript">JavaScript</option>
+            <option value="java">Java</option>
+            <option value="c">C</option>
+            <option value="csharp">C#</option>
+            <option value="cpp">C++</option>
+        </select>
+
+        <label for="theme">Thème spécifique :</label>
+        <input type="text" id="theme" name="theme" placeholder="Ex: Classes, Boucles, Algorithmes...">
+
+        <label for="type">Type de question :</label>
+        <select name="type" id="type">
+            <option value="qcm">QCM</option>
+            <option value="code">Exercice de Code</option>
+            <option value="error">Détection d'erreur</option>
+        </select>
+
+        <label for="gpt">Modèle GPT :</label>
+        <select name="gpt" id="gpt">
+            <option value="gpt-3.5-turbo">GPT-3.5</option>
+            <option value="gpt-4">GPT-4</option>
+        </select>
+
+        <button type="submit">Poser une question</button>
+    </form>
+
+    {% if question %}
+    <h2>Question Générée :</h2>
+    <p>{{ question }}</p>
+    {% endif %}
+
+</body>
+</html>

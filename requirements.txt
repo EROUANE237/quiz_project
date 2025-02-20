@@ -1,7 +1,0 @@
-Django==4.2
-openai==0.27.0
-django-htmx==1.9.0
-djangorestframework==3.14.0
-python-dotenv==1.0.0  # Pour les variables d'environnement
-#Pillow==9.3.0  # Si tu utilises des images
-gunicorn==20.1.0  # Serveur WSGI (production)
